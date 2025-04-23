@@ -5,14 +5,12 @@ public class Account {
 	private String acctId;
 	private int balance;
 	
-	
 	//Default Constructor(생성자)
 	public Account() {
 		System.out.println("Dafault Constructor Called..");
 	}
 	//Constructor Overloading(생성자 중복정의)
 	public Account(String custId, String acctId, int balance) {
-		super();
 		this.custId = custId;
 		this.acctId = acctId;
 		this.balance = balance;
@@ -51,4 +49,14 @@ public class Account {
 		}
 		this.balance -= amount;
 	}
+	
+	//부모 클래스가 가진 Object의 toString() 메서드를 재정의(Overriding)
+	//Method Signature public String toString()
+	@Override
+	public String toString() {
+		return "Account [custId=" + custId + ","
+				+ "acctId=" + acctId + ","
+				+ "balance=" + balance + "]";
+	}
+	
 }
