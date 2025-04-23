@@ -2,12 +2,12 @@ package workshop.person.control;
 
 import workshop.person.entity.PersonEntity;
 
-public class PersonManager {
+public class PersonManagerArrayList {
 	public static void main(String[] args) {
 		//PersonEntity 타입인 배열을 선언 및 생성
 		PersonEntity[] persons = new PersonEntity[10];
 		
-		PersonManager mgr = new PersonManager();
+		PersonManagerArrayList mgr = new PersonManagerArrayList();
 		mgr.fillPersons(persons);
 		
 		mgr.showPersons(persons);
