@@ -40,6 +40,14 @@ public class PersonEntity {
 
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
+		//0508073456789
+		char genderNum = ssn.charAt(6); //성별구분 숫자 인덱스
+		if(genderNum == '1' || genderNum == '3') {
+			//this.gender = '남';
+			setGender('남');
+		}else {
+			setGender('여');
+		}
 	}
 
 	public String getAddress() {
