@@ -1,5 +1,8 @@
 package lab.bank.entity;
 
+import lab.bank.exception.InsufficientBalanceException;
+import lab.bank.exception.WithdrawalLimitExceededException;
+
 public class CheckingAccount extends Account {
 	
 	private double withdrawalLimit;
@@ -18,8 +21,14 @@ public class CheckingAccount extends Account {
 	}
 	
 	 @Override
-    public void withdraw(double amount) throws Exception {
-		
+	 public void withdraw(double amount) throws Exception {
+        if (amount > withdrawalLimit) {
+            throw new WithdrawalLimitExceededException("출금 한도를 초과했습니다. 한도: " + withdrawalLimit + "원");
+        }
+        if (amount > getBalance()) {
+            throw new InsufficientBalanceException("잔액이 부족합니다. 현재 잔액: " + getBalance() + "원");
+        }
+        setBalance(getBalance() - amount);
     }
 	
 }

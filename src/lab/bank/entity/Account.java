@@ -36,7 +36,10 @@ public abstract class Account {
 	}
 	
 	public void deposit(double amount) {
-		
+		if (amount <= 0) {
+            throw new IllegalArgumentException("입금 금액은 양수여야 합니다.");
+        }
+        balance += amount;
 	}
 	
 	public abstract void withdraw(double amount) throws Exception;
